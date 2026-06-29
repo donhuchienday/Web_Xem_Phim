@@ -4,31 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FPT Play Clone - Xem Phim Trực Tuyến</title>
-    <!-- Thư viện Icon FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- CSS Tùy chỉnh -->
     <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
 
-    <!-- TOP NAVIGATION (HEADER) -->
     <header class="header" id="header">
         <div class="header__container">
-            <!-- Nút bật tắt Menu trên Mobile -->
             <button class="header__mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
                 <i class="fa-solid fa-bars"></i>
             </button>
 
-            <!-- Logo -->
             <a href="#" class="header__logo">
                 <span class="text-primary">FPT</span> Clone
             </a>
 
-            <!-- Menu Điều Hướng Chính -->
             <nav class="header__nav" id="main-nav">
                 <ul class="nav-list">
                     <li class="nav-item active"><a href="#" class="nav-link">Trang chủ</a></li>
@@ -36,7 +29,6 @@
                     <li class="nav-item"><a href="#" class="nav-link">Phim ảnh</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">Thể thao</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">Anime</a></li>
-                    <!-- Danh mục Xem thêm (Menu cấp 2) -->
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link">Xem Thêm <i class="fa-solid fa-chevron-down" style="font-size: 12px; margin-left: 4px;"></i></a>
                         <ul class="dropdown-menu">
@@ -49,15 +41,12 @@
                 </ul>
             </nav>
 
-            <!-- Thanh tìm kiếm và Các nút hành động -->
             <div class="header__actions">
-                <!-- Thanh tìm kiếm -->
                 <div class="search-box">
                     <input type="text" placeholder="Tìm kiếm phim, show..." class="search-input">
                     <button class="search-btn" aria-label="Tìm kiếm"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
 
-                <!-- Nút Đăng nhập & Mua VIP -->
                 <div class="auth-buttons">
                     <button class="btn btn-outline">Đăng nhập</button>
                     <button class="btn btn-primary"><i class="fa-solid fa-crown"></i> Mua Gói VIP</button>
@@ -66,19 +55,16 @@
         </div>
     </header>
 
-    <!-- CONTENT PLACEHOLDER (Khu vực dành cho nội dung tiếp theo) -->
     <main class="main-content">
-        <!-- Khu vực giả lập chiều cao để cuộn trang test Sticky Header -->
         <section class="hero-placeholder">
-            <h1>Hero Banner Sẽ Nằm Ở Đây</h1>
+            <h1>Hero Banner </h1>
             <p>Cuộn xuống để xem hiệu ứng Sticky Header</p>
         </section>
         <section class="content-placeholder">
-            <h2>Các Hàng Nội Dung Phim Sẽ Nằm Ở Đây</h2>
+            <h2>Các Hàng Nội Dung Phim </h2>
         </section>
     </main>
 
-    <!-- JS Tùy chỉnh (Sử dụng ES6 Modules) -->
     <script type="module" src="./js/main.js"></script>
 </body>
 </html>
