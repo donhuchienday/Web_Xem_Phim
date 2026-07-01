@@ -1,0 +1,315 @@
+/* --- HERO BANNER (CAROUSEL) --- */
+.hero-slider {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Banner chiếm toàn màn hình */
+    overflow: hidden;
+    background-color: var(--bg-color);
+}
+
+.slider-wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out; /* Trượt mượt mà */
+}
+
+.slide-item {
+    position: relative;
+    flex: 0 0 100%; /* Mỗi slide rộng 100% container */
+    height: 100%;
+}
+
+.slide-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+/* Overlay gradient từ đen sang trong suốt */
+.slide-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Tạo dải đen đậm bên trái để nổi bật chữ, và dải dưới đáy chìm vào nền */
+    background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0) 100%),
+                linear-gradient(0deg, var(--bg-color) 0%, rgba(0,0,0,0) 25%);
+}
+
+.slide-content {
+    position: absolute;
+    bottom: 12%; /* Dời xuống góc dưới bên trái */
+    left: 4%;
+    max-width: 700px;
+    z-index: 10;
+}
+
+.slide-title {
+    font-size: 3.5rem;
+    font-weight: 400;
+    font-family: 'Times New Roman', serif; /* Phông chữ có chân nghệ thuật */
+    color: #eab308; /* Màu vàng kim */
+    margin-bottom: 12px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.slide-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #e0e0e0;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+.slide-meta .rating {
+    background-color: rgba(255,255,255,0.15);
+    padding: 3px 8px;
+    border-radius: 4px;
+    color: #f59e0b;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.slide-meta .tag-4k {
+    background-color: #eab308;
+    color: black;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: 700;
+    font-size: 11px;
+}
+
+.slide-desc {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+    line-height: 1.6;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+    display: none; /* Ẩn mặc định theo yêu cầu */
+    animation: fadeIn 0.3s ease forwards;
+}
+
+.slide-desc.show {
+    display: block; /* Hiện ra toàn bộ nội dung khi click */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.desc-toggle-btn {
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.desc-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.desc-toggle-btn.active i {
+    transform: rotate(180deg); /* Xoay ngược mũi tên lên */
+}
+
+.slide-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.btn-icon-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: all var(--transition-speed);
+}
+
+.btn-icon-circle:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+.slide-actions .btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.slide-actions .btn-outline {
+    background-color: rgba(109, 109, 110, 0.7);
+    border: none;
+    color: white;
+}
+.slide-actions .btn-outline:hover {
+    background-color: rgba(109, 109, 110, 0.9);
+}
+
+
+/* --- SLIDER CONTROLS --- */
+.slider-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    width: 45px;
+    height: 90px;
+    cursor: pointer;
+    z-index: 20;
+    transition: background 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    opacity: 0; /* Ẩn nút đi, chỉ hiện khi hover vào banner */
+}
+
+.hero-slider:hover .slider-control {
+    opacity: 1;
+}
+
+.slider-control:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.slider-control.prev {
+    left: 0;
+    border-radius: 0 4px 4px 0;
+}
+
+.slider-control.next {
+    right: 0;
+    border-radius: 4px 0 0 0;
+}
+
+/* --- THUMBNAILS (THAY CHO DOTS CŨ) --- */
+.slider-thumbnails {
+    position: absolute;
+    bottom: 12%;
+    right: 4%;
+    display: flex;
+    gap: 12px;
+    z-index: 20;
+}
+
+.thumbnail-item {
+    width: 8vw; /* Điều chỉnh rộng ngang linh động theo phần trăm màn hình */
+    max-width: 100px; /* Giới hạn kích thước tối đa là 100px (100x50) */
+    min-width: 60px; /* Kích thước tối thiểu để không bị quá nhỏ trên mobile */
+    aspect-ratio: 2 / 1; /* Cố định tỷ lệ ảnh (100x50 là tỷ lệ 2:1) */
+    height: auto;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    position: relative;
+}
+
+.thumbnail-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.thumbnail-item:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.thumbnail-item.active {
+    border-color: white;
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.thumbnail-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+
+/* --- RESPONSIVE BANNER --- */
+@media (max-width: 1024px) {
+    .slide-title { font-size: 2.5rem; }
+    .slider-thumbnails {
+        width: 50%; /* Tránh việc dãy thumbnail đẩy layout ra xa */
+        overflow-x: auto;
+        bottom: 5%;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-slider {
+        height: 65vh;
+    }
+    
+    .slide-overlay {
+        background: linear-gradient(0deg, var(--bg-color) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.8) 100%);
+    }
+
+    .slide-content {
+        bottom: 30px;
+        text-align: center;
+        max-width: 100%;
+    }
+
+    .slide-title {
+        font-size: 1.8rem;
+    }
+
+    .slide-meta {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .slide-desc {
+        display: none;
+    }
+
+    .slide-actions {
+        justify-content: center;
+    }
+
+    .slider-thumbnails {
+        display: none;
+    }
+
+    .slider-control {
+        display: none;
+    }
+}

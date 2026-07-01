@@ -19,7 +19,7 @@
 }
 
 .header__container {
-    max-width: var(--container-max-width);
+    max-width: 100%;
     margin: 0 auto;
     padding: 0 4%;
     height: 100%;
@@ -39,7 +39,6 @@
 
 /* Desktop Navigation */
 .header__nav {
-    flex: 1;
     margin: 0 2rem;
 }
 

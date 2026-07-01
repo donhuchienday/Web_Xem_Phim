@@ -4,7 +4,7 @@
 /* Components */
 @import url('./components/header.css');
 
-/* Các component khác sẽ được import tại đây trong tương lai */
-/* @import url('./components/banner.css'); */
+/* Các component */
+@import url('./components/banner.css');
 /* @import url('./components/movie-card.css'); */
 /* @import url('./components/footer.css'); */

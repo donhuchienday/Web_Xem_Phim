@@ -36,14 +36,14 @@ button {
 
 /* --- REUSABLE BUTTONS (Toàn cục) --- */
 .btn {
-    padding: 8px 16px;
-    border-radius: 4px;
+    padding: 10px 20px;
+    border-radius: 25px; /* Bo viền cong nhiều hơn tạo hình viên thuốc */
     font-size: 14px;
     font-weight: 600;
     transition: all var(--transition-speed) ease;
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
 }
 
 .btn-primary {
